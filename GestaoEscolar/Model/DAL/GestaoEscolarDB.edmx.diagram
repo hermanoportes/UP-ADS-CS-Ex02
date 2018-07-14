@@ -5,13 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="96087794202743f69127a502962dca1f" Name="Diagram1" >
-        <EntityTypeShape EntityType="Model1.Usuario" Width="1.5" PointX="2" PointY="1" />
-        <EntityTypeShape EntityType="Model1.Aluno" Width="1.5" PointX="4.75" PointY="0.625" />
-        <InheritanceConnector EntityType="Model1.Aluno" />
-        <EntityTypeShape EntityType="Model1.Professor" Width="1.5" PointX="4.75" PointY="2.375" />
-        <InheritanceConnector EntityType="Model1.Professor" />
-        <EntityTypeShape EntityType="Model1.Disciplina" Width="1.5" PointX="7.375" PointY="1.625" />
-        <AssociationConnector Association="Model1.ProfessorDisciplina" />
+        <EntityTypeShape EntityType="ModelGestaoEscolarDB.Usuario" Width="1.5" PointX="2" PointY="1" />
+        <EntityTypeShape EntityType="ModelGestaoEscolarDB.Aluno" Width="1.5" PointX="4.75" PointY="0.625" />
+        <InheritanceConnector EntityType="ModelGestaoEscolarDB.Aluno" />
+        <EntityTypeShape EntityType="ModelGestaoEscolarDB.Professor" Width="1.5" PointX="4.75" PointY="2.375" />
+        <InheritanceConnector EntityType="ModelGestaoEscolarDB.Professor" />
+        <EntityTypeShape EntityType="ModelGestaoEscolarDB.Disciplina" Width="1.5" PointX="7.375" PointY="1.625" />
+        <AssociationConnector Association="ModelGestaoEscolarDB.ProfessorDisciplina" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

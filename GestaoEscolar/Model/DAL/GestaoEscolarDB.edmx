@@ -4,21 +4,21 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="Model1StoreContainer">
-    <EntitySet Name="Usuarios" EntityType="Model1.Store.Usuarios" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Disciplinas" EntityType="Model1.Store.Disciplinas" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Usuarios_Professor" EntityType="Model1.Store.Usuarios_Professor" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Usuarios_Aluno" EntityType="Model1.Store.Usuarios_Aluno" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="ProfessorDisciplina" Association="Model1.Store.ProfessorDisciplina">
+    <Schema Namespace="ModelGestaoEscolarDB.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelGestaoEscolarDBStoreContainer">
+    <EntitySet Name="Usuarios" EntityType="ModelGestaoEscolarDB.Store.Usuarios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Disciplinas" EntityType="ModelGestaoEscolarDB.Store.Disciplinas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Usuarios_Professor" EntityType="ModelGestaoEscolarDB.Store.Usuarios_Professor" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Usuarios_Aluno" EntityType="ModelGestaoEscolarDB.Store.Usuarios_Aluno" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ProfessorDisciplina" Association="ModelGestaoEscolarDB.Store.ProfessorDisciplina">
       <End Role="Professor" EntitySet="Usuarios_Professor" />
       <End Role="Disciplina" EntitySet="Disciplinas" />
     </AssociationSet>
-    <AssociationSet Name="FK_Professor_inherits_Usuario" Association="Model1.Store.FK_Professor_inherits_Usuario">
+    <AssociationSet Name="FK_Professor_inherits_Usuario" Association="ModelGestaoEscolarDB.Store.FK_Professor_inherits_Usuario">
       <End Role="Usuario" EntitySet="Usuarios" />
       <End Role="Professor" EntitySet="Usuarios_Professor" />
     </AssociationSet>
-    <AssociationSet Name="FK_Aluno_inherits_Usuario" Association="Model1.Store.FK_Aluno_inherits_Usuario">
+    <AssociationSet Name="FK_Aluno_inherits_Usuario" Association="ModelGestaoEscolarDB.Store.FK_Aluno_inherits_Usuario">
       <End Role="Usuario" EntitySet="Usuarios" />
       <End Role="Aluno" EntitySet="Usuarios_Aluno" />
     </AssociationSet>
@@ -61,8 +61,8 @@
     <Property Name="Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="ProfessorDisciplina">
-    <End Role="Professor" Type="Model1.Store.Usuarios_Professor" Multiplicity="1" />
-    <End Role="Disciplina" Type="Model1.Store.Disciplinas" Multiplicity="*" />
+    <End Role="Professor" Type="ModelGestaoEscolarDB.Store.Usuarios_Professor" Multiplicity="1" />
+    <End Role="Disciplina" Type="ModelGestaoEscolarDB.Store.Disciplinas" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Professor">
         <PropertyRef Name="Id" />
@@ -73,10 +73,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Professor_inherits_Usuario">
-    <End Role="Usuario" Type="Model1.Store.Usuarios" Multiplicity="1">
+    <End Role="Usuario" Type="ModelGestaoEscolarDB.Store.Usuarios" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Professor" Type="Model1.Store.Usuarios_Professor" Multiplicity="0..1" />
+    <End Role="Professor" Type="ModelGestaoEscolarDB.Store.Usuarios_Professor" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Usuario">
         <PropertyRef Name="Id" />
@@ -87,10 +87,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Aluno_inherits_Usuario">
-    <End Role="Usuario" Type="Model1.Store.Usuarios" Multiplicity="1">
+    <End Role="Usuario" Type="ModelGestaoEscolarDB.Store.Usuarios" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Aluno" Type="Model1.Store.Usuarios_Aluno" Multiplicity="0..1" />
+    <End Role="Aluno" Type="ModelGestaoEscolarDB.Store.Usuarios_Aluno" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Usuario">
         <PropertyRef Name="Id" />
@@ -103,11 +103,11 @@
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
-        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Usuarios" EntityType="Model1.Usuario" />
-          <EntitySet Name="Disciplinas" EntityType="Model1.Disciplina" />
-          <AssociationSet Name="ProfessorDisciplina" Association="Model1.ProfessorDisciplina">
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModelGestaoEscolarDB" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModelGestaoEscolarDBContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Usuarios" EntityType="ModelGestaoEscolarDB.Usuario" />
+          <EntitySet Name="Disciplinas" EntityType="ModelGestaoEscolarDB.Disciplina" />
+          <AssociationSet Name="ProfessorDisciplina" Association="ModelGestaoEscolarDB.ProfessorDisciplina">
             <End Role="Professor" EntitySet="Usuarios" />
             <End Role="Disciplina" EntitySet="Disciplinas" />
           </AssociationSet>
@@ -124,14 +124,14 @@
           <Property Name="Endereco" Type="String" Nullable="false" />
           <Property Name="Telefone" Type="String" Nullable="false" />
         </EntityType>
-        <EntityType Name="Aluno" BaseType="Model1.Usuario" >
+        <EntityType Name="Aluno" BaseType="ModelGestaoEscolarDB.Usuario" >
           <Property Name="Matricula" Type="String" Nullable="false" />
           <Property Name="Idade" Type="String" Nullable="false" />
         </EntityType>
-        <EntityType Name="Professor" BaseType="Model1.Usuario" >
+        <EntityType Name="Professor" BaseType="ModelGestaoEscolarDB.Usuario" >
           <Property Name="Formacao" Type="String" Nullable="false" />
           <Property Name="Salario" Type="String" Nullable="false" />
-          <NavigationProperty Name="Disciplina" Relationship="Model1.ProfessorDisciplina" FromRole="Professor" ToRole="Disciplina" />
+          <NavigationProperty Name="Disciplina" Relationship="ModelGestaoEscolarDB.ProfessorDisciplina" FromRole="Professor" ToRole="Disciplina" />
         </EntityType>
         <EntityType Name="Disciplina">
           <Key>
@@ -140,12 +140,12 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nome" Type="String" Nullable="false" />
           <Property Name="CargaHoraria" Type="String" Nullable="false" />
-          <NavigationProperty Name="Professor" Relationship="Model1.ProfessorDisciplina" FromRole="Disciplina" ToRole="Professor" />
+          <NavigationProperty Name="Professor" Relationship="ModelGestaoEscolarDB.ProfessorDisciplina" FromRole="Disciplina" ToRole="Professor" />
           <Property Name="ProfessorId" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="ProfessorDisciplina">
-          <End Type="Model1.Professor" Role="Professor" Multiplicity="1" />
-          <End Type="Model1.Disciplina" Role="Disciplina" Multiplicity="*" />
+          <End Type="ModelGestaoEscolarDB.Professor" Role="Professor" Multiplicity="1" />
+          <End Type="ModelGestaoEscolarDB.Disciplina" Role="Disciplina" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Professor">
               <PropertyRef Name="Id" />
@@ -160,9 +160,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+  <EntityContainerMapping StorageEntityContainer="ModelGestaoEscolarDBStoreContainer" CdmEntityContainer="ModelGestaoEscolarDBContainer">
     <EntitySetMapping Name="Usuarios">
-      <EntityTypeMapping TypeName="IsTypeOf(Model1.Usuario)">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelGestaoEscolarDB.Usuario)">
         <MappingFragment StoreEntitySet="Usuarios">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
@@ -173,14 +173,14 @@
           <ScalarProperty Name="Telefone" ColumnName="Telefone" />
         </MappingFragment>
       </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(Model1.Professor)">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelGestaoEscolarDB.Professor)">
         <MappingFragment StoreEntitySet="Usuarios_Professor">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Formacao" ColumnName="Formacao" />
           <ScalarProperty Name="Salario" ColumnName="Salario" />
         </MappingFragment>
       </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(Model1.Aluno)">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelGestaoEscolarDB.Aluno)">
         <MappingFragment StoreEntitySet="Usuarios_Aluno">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Matricula" ColumnName="Matricula" />
@@ -189,7 +189,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Disciplinas">
-      <EntityTypeMapping TypeName="IsTypeOf(Model1.Disciplina)">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelGestaoEscolarDB.Disciplina)">
         <MappingFragment StoreEntitySet="Disciplinas">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />

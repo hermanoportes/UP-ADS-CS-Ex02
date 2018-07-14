@@ -13,10 +13,10 @@ namespace Model.DAL
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Model1Container : DbContext
+    public partial class ModelGestaoEscolarDBContainer : DbContext
     {
-        public Model1Container()
-            : base("name=Model1Container")
+        public ModelGestaoEscolarDBContainer()
+            : base("name=ModelGestaoEscolarDBContainer")
         {
         }
     
