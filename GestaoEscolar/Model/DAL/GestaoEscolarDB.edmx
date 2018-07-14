@@ -13,23 +13,13 @@
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Disciplinas" EntityType="Model1.Disciplina" />
           <EntitySet Name="Usuarios" EntityType="Model1.Usuario" />
+          <EntitySet Name="Disciplinas" EntityType="Model1.Disciplina" />
           <AssociationSet Name="ProfessorDisciplina" Association="Model1.ProfessorDisciplina">
             <End Role="Professor" EntitySet="Usuarios" />
             <End Role="Disciplina" EntitySet="Disciplinas" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Disciplina">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nome" Type="String" Nullable="false" />
-          <Property Name="CargaHoraria" Type="String" Nullable="false" />
-          <NavigationProperty Name="Professor" Relationship="Model1.ProfessorDisciplina" FromRole="Disciplina" ToRole="Professor" />
-          <Property Name="ProfessorId" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="Usuario">
           <Key>
             <PropertyRef Name="Id" />
@@ -50,6 +40,16 @@
           <Property Name="Formacao" Type="String" Nullable="false" />
           <Property Name="Salario" Type="String" Nullable="false" />
           <NavigationProperty Name="Disciplina" Relationship="Model1.ProfessorDisciplina" FromRole="Professor" ToRole="Disciplina" />
+        </EntityType>
+        <EntityType Name="Disciplina">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="CargaHoraria" Type="String" Nullable="false" />
+          <NavigationProperty Name="Professor" Relationship="Model1.ProfessorDisciplina" FromRole="Disciplina" ToRole="Professor" />
+          <Property Name="ProfessorId" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="ProfessorDisciplina">
           <End Type="Model1.Professor" Role="Professor" Multiplicity="1" />
