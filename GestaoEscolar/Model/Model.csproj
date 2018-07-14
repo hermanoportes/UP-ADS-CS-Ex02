@@ -49,10 +49,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\Aluno.cs">
+      <DependentUpon>GestaoEscolarDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Disciplina.cs">
+      <DependentUpon>GestaoEscolarDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\GestaoEscolarDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestaoEscolarDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\GestaoEscolarDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestaoEscolarDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="DAL\GestaoEscolarDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GestaoEscolarDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Professor.cs">
+      <DependentUpon>GestaoEscolarDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Usuario.cs">
+      <DependentUpon>GestaoEscolarDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -69,6 +91,19 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DAL\GestaoEscolarDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>GestaoEscolarDB.Context.cs</LastGenOutput>
+      <DependentUpon>GestaoEscolarDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="DAL\GestaoEscolarDB.edmx.sql" />
+    <Content Include="DAL\GestaoEscolarDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>GestaoEscolarDB.cs</LastGenOutput>
+      <DependentUpon>GestaoEscolarDB.edmx</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
