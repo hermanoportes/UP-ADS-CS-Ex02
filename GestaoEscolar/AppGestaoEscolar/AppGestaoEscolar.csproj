@@ -55,6 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\AlunosController.cs" />
+    <Compile Include="Controller\DisciplinasController.cs" />
+    <Compile Include="Controller\ProfessoresController.cs" />
     <Compile Include="FormInicio.cs">
       <SubType>Form</SubType>
     </Compile>
