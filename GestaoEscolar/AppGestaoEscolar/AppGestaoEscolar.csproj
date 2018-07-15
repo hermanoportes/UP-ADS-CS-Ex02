@@ -57,11 +57,11 @@
     <Compile Include="Controller\AlunosController.cs" />
     <Compile Include="Controller\DisciplinasController.cs" />
     <Compile Include="Controller\ProfessoresController.cs" />
-    <Compile Include="FormInicio.cs">
+    <Compile Include="FrmInicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormInicio.Designer.cs">
-      <DependentUpon>FormInicio.cs</DependentUpon>
+    <Compile Include="FrmInicio.Designer.cs">
+      <DependentUpon>FrmInicio.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\DAL\Aluno.cs">
       <DependentUpon>ModelGEsc.tt</DependentUpon>
@@ -92,8 +92,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormInicio.resx">
-      <DependentUpon>FormInicio.cs</DependentUpon>
+    <Compile Include="View\FrmCadastrarAluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmCadastrarAluno.Designer.cs">
+      <DependentUpon>FrmCadastrarAluno.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FrmInicio.resx">
+      <DependentUpon>FrmInicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -104,6 +110,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\FrmCadastrarAluno.resx">
+      <DependentUpon>FrmCadastrarAluno.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="Model\DAL\ModelGEsc.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelGEsc.Designer.cs</LastGenOutput>
@@ -126,9 +135,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Model\DAL\ModelGEsc.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

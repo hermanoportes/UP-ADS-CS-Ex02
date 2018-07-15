@@ -16,7 +16,7 @@ namespace AppGestaoEscolar
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormInicio());
+            Application.Run(new FrmInicio());
         }
     }
 }
