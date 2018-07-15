@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Model.DAL
+namespace AppGestaoEscolar.Model.DAL
 {
     using System;
     using System.Collections.Generic;
@@ -16,10 +16,10 @@ namespace Model.DAL
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public string DataNasc { get; set; }
+        public System.DateTime DataNasc { get; set; }
         public string Sexo { get; set; }
-        public string CPF { get; set; }
+        public long CPF { get; set; }
+        public long Telefone { get; set; }
         public string Endereco { get; set; }
-        public string Telefone { get; set; }
     }
 }

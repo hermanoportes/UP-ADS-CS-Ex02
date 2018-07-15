@@ -1,15 +1,15 @@
-﻿using Model.DAL;
+﻿using AppGestaoEscolar.Model.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Controller
+namespace AppGestaoEscolar.Controller
 {
     public class AlunosController
     {
-        GestaoEscolarDBContext contexto = new GestaoEscolarDBContext();
+        ModelGEscContainer contexto = new ModelGEscContainer();
 
         public void Inserir(Aluno aluno)
         {
@@ -17,14 +17,18 @@ namespace Controller
             contexto.SaveChanges();
         }
 
-        public void Alterar(int matricula)
+        public void Alterar(Aluno aluno)
         {
-            ContextStaticAttribute.En
+            contexto.Entry(aluno).State = System.Data.Entity.EntityState.Modified;
+            contexto.SaveChanges();
         }
 
-        public void Excluir(int matricula)
+        public void Excluir(int idAluno)
+
         {
-            
+            Aluno aluno = BuscarId(idAluno);
+            contexto.Alunos.Remove(aluno);
+            contexto.SaveChanges();
         }
 
         public List<Aluno> Listar()
@@ -38,6 +42,11 @@ namespace Controller
                         where a.Matricula == matricula
                         select a;
             return (Aluno)aluno;
+        }
+
+        public Aluno BuscarId(int idAluno)
+        {
+            return contexto.Alunos.Find(idAluno); 
         }
     }
 }

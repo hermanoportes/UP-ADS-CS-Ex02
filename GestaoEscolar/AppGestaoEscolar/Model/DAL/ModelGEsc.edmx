@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModelGEsc.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelGEscStoreContainer">
+    <EntitySet Name="Usuarios" EntityType="ModelGEsc.Store.Usuarios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Disciplinas" EntityType="ModelGEsc.Store.Disciplinas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Usuarios_Professor" EntityType="ModelGEsc.Store.Usuarios_Professor" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Usuarios_Aluno" EntityType="ModelGEsc.Store.Usuarios_Aluno" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AlunoDisciplina" EntityType="ModelGEsc.Store.AlunoDisciplina" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ProfessorDisciplina" Association="ModelGEsc.Store.ProfessorDisciplina">
+      <End Role="Professor" EntitySet="Usuarios_Professor" />
+      <End Role="Disciplina" EntitySet="Disciplinas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AlunoDisciplina_Aluno" Association="ModelGEsc.Store.FK_AlunoDisciplina_Aluno">
+      <End Role="Aluno" EntitySet="Usuarios_Aluno" />
+      <End Role="AlunoDisciplina" EntitySet="AlunoDisciplina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AlunoDisciplina_Disciplina" Association="ModelGEsc.Store.FK_AlunoDisciplina_Disciplina">
+      <End Role="Disciplina" EntitySet="Disciplinas" />
+      <End Role="AlunoDisciplina" EntitySet="AlunoDisciplina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Professor_inherits_Usuario" Association="ModelGEsc.Store.FK_Professor_inherits_Usuario">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Professor" EntitySet="Usuarios_Professor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Aluno_inherits_Usuario" Association="ModelGEsc.Store.FK_Aluno_inherits_Usuario">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Aluno" EntitySet="Usuarios_Aluno" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DataNasc" Type="datetime" Nullable="false" />
+    <Property Name="Sexo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CPF" Type="bigint" Nullable="false" />
+    <Property Name="Telefone" Type="bigint" Nullable="false" />
+    <Property Name="Endereco" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Disciplinas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CargaHoraria" Type="int" Nullable="false" />
+    <Property Name="ProfessorId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuarios_Professor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Formacao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Salario" Type="decimal" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuarios_Aluno">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Matricula" Type="int" Nullable="false" />
+    <Property Name="Idade" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AlunoDisciplina">
+    <Key>
+      <PropertyRef Name="Aluno_Id" />
+      <PropertyRef Name="Disciplina_Id" />
+    </Key>
+    <Property Name="Aluno_Id" Type="int" Nullable="false" />
+    <Property Name="Disciplina_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ProfessorDisciplina">
+    <End Role="Professor" Type="ModelGEsc.Store.Usuarios_Professor" Multiplicity="1" />
+    <End Role="Disciplina" Type="ModelGEsc.Store.Disciplinas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Professor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Disciplina">
+        <PropertyRef Name="ProfessorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AlunoDisciplina_Aluno">
+    <End Role="Aluno" Type="ModelGEsc.Store.Usuarios_Aluno" Multiplicity="1" />
+    <End Role="AlunoDisciplina" Type="ModelGEsc.Store.AlunoDisciplina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aluno">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AlunoDisciplina">
+        <PropertyRef Name="Aluno_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AlunoDisciplina_Disciplina">
+    <End Role="AlunoDisciplina" Type="ModelGEsc.Store.AlunoDisciplina" Multiplicity="*" />
+    <End Role="Disciplina" Type="ModelGEsc.Store.Disciplinas" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Disciplina">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AlunoDisciplina">
+        <PropertyRef Name="Disciplina_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Professor_inherits_Usuario">
+    <End Role="Usuario" Type="ModelGEsc.Store.Usuarios" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Professor" Type="ModelGEsc.Store.Usuarios_Professor" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Professor">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Aluno_inherits_Usuario">
+    <End Role="Usuario" Type="ModelGEsc.Store.Usuarios" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Aluno" Type="ModelGEsc.Store.Usuarios_Aluno" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Aluno">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModelGEsc" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModelGEscContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Usuarios" EntityType="ModelGEsc.Usuario" />
+          <EntitySet Name="Disciplinas" EntityType="ModelGEsc.Disciplina" />
+          <AssociationSet Name="ProfessorDisciplina" Association="ModelGEsc.ProfessorDisciplina">
+            <End Role="Professor" EntitySet="Usuarios" />
+            <End Role="Disciplina" EntitySet="Disciplinas" />
+          </AssociationSet>
+          <AssociationSet Name="AlunoDisciplina" Association="ModelGEsc.AlunoDisciplina">
+            <End Role="Aluno" EntitySet="Usuarios" />
+            <End Role="Disciplina" EntitySet="Disciplinas" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="DataNasc" Type="DateTime" Nullable="false" />
+          <Property Name="Sexo" Type="String" Nullable="false" />
+          <Property Name="CPF" Type="Int64" Nullable="false" />
+          <Property Name="Telefone" Type="Int64" Nullable="false" />
+          <Property Name="Endereco" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Aluno" BaseType="ModelGEsc.Usuario">
+          <Property Name="Matricula" Type="Int32" Nullable="false" />
+          <Property Name="Idade" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Disciplina" Relationship="ModelGEsc.AlunoDisciplina" FromRole="Aluno" ToRole="Disciplina" />
+        </EntityType>
+        <EntityType Name="Professor" BaseType="ModelGEsc.Usuario" >
+          <Property Name="Formacao" Type="String" Nullable="false" />
+          <Property Name="Salario" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="Disciplina" Relationship="ModelGEsc.ProfessorDisciplina" FromRole="Professor" ToRole="Disciplina" />
+        </EntityType>
+        <EntityType Name="Disciplina">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="CargaHoraria" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Professor" Relationship="ModelGEsc.ProfessorDisciplina" FromRole="Disciplina" ToRole="Professor" />
+          <Property Name="ProfessorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Aluno" Relationship="ModelGEsc.AlunoDisciplina" FromRole="Disciplina" ToRole="Aluno" />
+        </EntityType>
+        <Association Name="ProfessorDisciplina">
+          <End Type="ModelGEsc.Professor" Role="Professor" Multiplicity="1" />
+          <End Type="ModelGEsc.Disciplina" Role="Disciplina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Professor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Disciplina">
+              <PropertyRef Name="ProfessorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AlunoDisciplina">
+          <End Type="ModelGEsc.Aluno" Role="Aluno" Multiplicity="*" />
+          <End Type="ModelGEsc.Disciplina" Role="Disciplina" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelGEscStoreContainer" CdmEntityContainer="ModelGEscContainer">
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelGEsc.Usuario)">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="DataNasc" ColumnName="DataNasc" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ModelGEsc.Professor)">
+        <MappingFragment StoreEntitySet="Usuarios_Professor">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Formacao" ColumnName="Formacao" />
+          <ScalarProperty Name="Salario" ColumnName="Salario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ModelGEsc.Aluno)">
+        <MappingFragment StoreEntitySet="Usuarios_Aluno">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+          <ScalarProperty Name="Idade" ColumnName="Idade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Disciplinas">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelGEsc.Disciplina)">
+        <MappingFragment StoreEntitySet="Disciplinas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="CargaHoraria" ColumnName="CargaHoraria" />
+          <ScalarProperty Name="ProfessorId" ColumnName="ProfessorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AlunoDisciplina" TypeName="ModelGEsc.AlunoDisciplina" StoreEntitySet="AlunoDisciplina">
+      <EndProperty Name="Aluno">
+        <ScalarProperty Name="Id" ColumnName="Aluno_Id" />
+      </EndProperty>
+      <EndProperty Name="Disciplina">
+        <ScalarProperty Name="Id" ColumnName="Disciplina_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Model.DAL
+namespace AppGestaoEscolar.Model.DAL
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ModelGestaoEscolarDBContainer : DbContext
+    public partial class ModelGEscContainer : DbContext
     {
-        public ModelGestaoEscolarDBContainer()
-            : base("name=ModelGestaoEscolarDBContainer")
+        public ModelGEscContainer()
+            : base("name=ModelGEscContainer")
         {
         }
     
@@ -26,6 +26,8 @@ namespace Model.DAL
         }
     
         public virtual DbSet<Usuario> Usuarios { get; set; }
+        public virtual DbSet<Aluno> Alunos { get; set; }
+        public virtual DbSet<Professor> Professores { get; set; }
         public virtual DbSet<Disciplina> Disciplinas { get; set; }
     }
 }

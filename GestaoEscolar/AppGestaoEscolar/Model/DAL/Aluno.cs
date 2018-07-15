@@ -7,21 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Model.DAL
+namespace AppGestaoEscolar.Model.DAL
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Professor : Usuario
+    public partial class Aluno : Usuario
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Professor()
+        public Aluno()
         {
             this.Disciplina = new HashSet<Disciplina>();
         }
     
-        public string Formacao { get; set; }
-        public string Salario { get; set; }
+        public int Matricula { get; set; }
+        public int Idade { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Disciplina> Disciplina { get; set; }
