@@ -33,7 +33,6 @@
             this.labelEmail = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.labelUF = new System.Windows.Forms.Label();
-            this.labelFormacao = new System.Windows.Forms.Label();
             this.maskTxtCEP = new System.Windows.Forms.MaskedTextBox();
             this.labelNome = new System.Windows.Forms.Label();
             this.comboUF = new System.Windows.Forms.ComboBox();
@@ -46,7 +45,6 @@
             this.labelLograd = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.labelComp = new System.Windows.Forms.Label();
-            this.txtFormacao = new System.Windows.Forms.TextBox();
             this.labelNumero = new System.Windows.Forms.Label();
             this.txtLograd = new System.Windows.Forms.TextBox();
             this.maskTxtTelefone = new System.Windows.Forms.MaskedTextBox();
@@ -58,13 +56,15 @@
             this.rdBtnFem = new System.Windows.Forms.RadioButton();
             this.maskTxtDataNasc = new System.Windows.Forms.MaskedTextBox();
             this.maskTxtCPF = new System.Windows.Forms.MaskedTextBox();
+            this.labelFormacao = new System.Windows.Forms.Label();
+            this.txtFormacao = new System.Windows.Forms.TextBox();
             this.btnEnviar = new System.Windows.Forms.Button();
             this.groupAcademico = new System.Windows.Forms.GroupBox();
             this.groupFuncional = new System.Windows.Forms.GroupBox();
-            this.labelSalario = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.labelDataInic = new System.Windows.Forms.Label();
             this.maskDataInic = new System.Windows.Forms.MaskedTextBox();
+            this.labelSalario = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupSetAluno.SuspendLayout();
             this.groupAcademico.SuspendLayout();
             this.groupFuncional.SuspendLayout();
@@ -141,15 +141,6 @@
             this.labelUF.TabIndex = 25;
             this.labelUF.Text = "UF";
             // 
-            // labelFormacao
-            // 
-            this.labelFormacao.AutoSize = true;
-            this.labelFormacao.Location = new System.Drawing.Point(87, 16);
-            this.labelFormacao.Name = "labelFormacao";
-            this.labelFormacao.Size = new System.Drawing.Size(57, 13);
-            this.labelFormacao.TabIndex = 2;
-            this.labelFormacao.Text = "Formação:";
-            // 
             // maskTxtCEP
             // 
             this.maskTxtCEP.Location = new System.Drawing.Point(438, 174);
@@ -169,7 +160,9 @@
             // 
             // comboUF
             // 
+            this.comboUF.DropDownHeight = 110;
             this.comboUF.FormattingEnabled = true;
+            this.comboUF.IntegralHeight = false;
             this.comboUF.Items.AddRange(new object[] {
             "AC",
             "AL",
@@ -280,13 +273,6 @@
             this.labelComp.TabIndex = 21;
             this.labelComp.Text = "Complemento";
             // 
-            // txtFormacao
-            // 
-            this.txtFormacao.Location = new System.Drawing.Point(200, 13);
-            this.txtFormacao.Name = "txtFormacao";
-            this.txtFormacao.Size = new System.Drawing.Size(298, 20);
-            this.txtFormacao.TabIndex = 8;
-            // 
             // labelNumero
             // 
             this.labelNumero.AutoSize = true;
@@ -382,6 +368,22 @@
             this.maskTxtCPF.Size = new System.Drawing.Size(87, 20);
             this.maskTxtCPF.TabIndex = 15;
             // 
+            // labelFormacao
+            // 
+            this.labelFormacao.AutoSize = true;
+            this.labelFormacao.Location = new System.Drawing.Point(87, 16);
+            this.labelFormacao.Name = "labelFormacao";
+            this.labelFormacao.Size = new System.Drawing.Size(57, 13);
+            this.labelFormacao.TabIndex = 2;
+            this.labelFormacao.Text = "Formação:";
+            // 
+            // txtFormacao
+            // 
+            this.txtFormacao.Location = new System.Drawing.Point(200, 13);
+            this.txtFormacao.Name = "txtFormacao";
+            this.txtFormacao.Size = new System.Drawing.Size(298, 20);
+            this.txtFormacao.TabIndex = 8;
+            // 
             // btnEnviar
             // 
             this.btnEnviar.Location = new System.Drawing.Point(611, 384);
@@ -415,22 +417,6 @@
             this.groupFuncional.TabStop = false;
             this.groupFuncional.Text = "Dados Funcionais";
             // 
-            // labelSalario
-            // 
-            this.labelSalario.AutoSize = true;
-            this.labelSalario.Location = new System.Drawing.Point(87, 17);
-            this.labelSalario.Name = "labelSalario";
-            this.labelSalario.Size = new System.Drawing.Size(70, 13);
-            this.labelSalario.TabIndex = 9;
-            this.labelSalario.Text = "Salário Bruto:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(200, 14);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(84, 20);
-            this.textBox1.TabIndex = 10;
-            // 
             // labelDataInic
             // 
             this.labelDataInic.AutoSize = true;
@@ -449,11 +435,27 @@
             this.maskDataInic.TabIndex = 32;
             this.maskDataInic.ValidatingType = typeof(System.DateTime);
             // 
+            // labelSalario
+            // 
+            this.labelSalario.AutoSize = true;
+            this.labelSalario.Location = new System.Drawing.Point(87, 17);
+            this.labelSalario.Name = "labelSalario";
+            this.labelSalario.Size = new System.Drawing.Size(70, 13);
+            this.labelSalario.TabIndex = 9;
+            this.labelSalario.Text = "Salário Bruto:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(200, 14);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(84, 20);
+            this.textBox1.TabIndex = 10;
+            // 
             // FrmCadastrarProfessor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 442);
+            this.ClientSize = new System.Drawing.Size(720, 480);
             this.ControlBox = false;
             this.Controls.Add(this.groupFuncional);
             this.Controls.Add(this.groupAcademico);

@@ -57,17 +57,16 @@
     <Compile Include="Controller\AlunosController.cs" />
     <Compile Include="Controller\DisciplinasController.cs" />
     <Compile Include="Controller\ProfessoresController.cs" />
+    <Compile Include="GestaoEscolarDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestaoEscolarDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Model\Aluno.cs" />
     <Compile Include="Model\DAL\Contexto.cs" />
     <Compile Include="Model\Disciplina.cs" />
     <Compile Include="Model\Professor.cs" />
     <Compile Include="Model\Usuario.cs" />
-    <Compile Include="View\FrmInicio.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\FrmInicio.Designer.cs">
-      <DependentUpon>FrmInicio.cs</DependentUpon>
-    </Compile>
     <Compile Include="Model\DAL\ModelGEsc.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -147,9 +146,12 @@
     <Compile Include="View\FrmListarProfessores.Designer.cs">
       <DependentUpon>FrmListarProfessores.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\FrmInicio.resx">
-      <DependentUpon>FrmInicio.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="View\MDIPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MDIPrincipal.Designer.cs">
+      <DependentUpon>MDIPrincipal.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -162,13 +164,30 @@
     <EmbeddedResource Include="View\FrmCadastrarAluno.resx">
       <DependentUpon>FrmCadastrarAluno.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmCadastrarDisciplina.resx">
+      <DependentUpon>FrmCadastrarDisciplina.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FrmCadastrarProfessor.resx">
       <DependentUpon>FrmCadastrarProfessor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MDIPrincipal.resx">
+      <DependentUpon>MDIPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Model\DAL\ModelGEsc.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelGEsc.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="GestaoEscolarDBDataSet.xsc">
+      <DependentUpon>GestaoEscolarDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GestaoEscolarDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestaoEscolarDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GestaoEscolarDBDataSet.xss">
+      <DependentUpon>GestaoEscolarDBDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Model\DAL\ModelGEsc.edmx.diagram">
       <DependentUpon>ModelGEsc.edmx</DependentUpon>
       <SubType>Designer</SubType>

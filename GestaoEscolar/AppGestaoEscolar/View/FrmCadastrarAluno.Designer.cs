@@ -97,6 +97,7 @@
             this.groupSetAluno.Size = new System.Drawing.Size(677, 271);
             this.groupSetAluno.TabIndex = 28;
             this.groupSetAluno.TabStop = false;
+            this.groupSetAluno.Text = "Dados Pessoais";
             // 
             // labelEmail
             // 
@@ -151,7 +152,10 @@
             // 
             // comboUF
             // 
+            this.comboUF.DropDownHeight = 110;
             this.comboUF.FormattingEnabled = true;
+            this.comboUF.IntegralHeight = false;
+            this.comboUF.ItemHeight = 13;
             this.comboUF.Items.AddRange(new object[] {
             "AC",
             "AL",
@@ -389,7 +393,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(710, 450);
+            this.ClientSize = new System.Drawing.Size(720, 480);
             this.ControlBox = false;
             this.Controls.Add(this.labelCadastrarAluno);
             this.Controls.Add(this.groupSetAluno);

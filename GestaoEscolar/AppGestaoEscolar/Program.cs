@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppGestaoEscolar.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace AppGestaoEscolar
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmInicio());
+            Application.Run(new MDIPrincipal());
         }
     }
 }

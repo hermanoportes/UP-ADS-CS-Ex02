@@ -16,5 +16,16 @@ namespace AppGestaoEscolar.View
         {
             InitializeComponent();
         }
+
+        private void FrmCadastrarDisciplina_Load(object sender, EventArgs e)
+        {
+            // TODO: esta linha de código carrega dados na tabela 'gestaoEscolarDBDataSet.Disciplinas'. Você pode movê-la ou removê-la conforme necessário.
+            this.disciplinasTableAdapter.Fill(this.gestaoEscolarDBDataSet.Disciplinas);
+            // TODO: esta linha de código carrega dados na tabela 'gestaoEscolarDBDataSet.Usuarios_Professor'. Você pode movê-la ou removê-la conforme necessário.
+            this.usuarios_ProfessorTableAdapter.Fill(this.gestaoEscolarDBDataSet.Usuarios_Professor);
+            // TODO: esta linha de código carrega dados na tabela 'gestaoEscolarDBDataSet.Usuarios'. Você pode movê-la ou removê-la conforme necessário.
+            this.usuariosTableAdapter.Fill(this.gestaoEscolarDBDataSet.Usuarios);
+
+        }
     }
 }
