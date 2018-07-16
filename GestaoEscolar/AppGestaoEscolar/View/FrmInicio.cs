@@ -30,63 +30,58 @@ namespace AppGestaoEscolar
 
         private void menuAlterarAluno_Click(object sender, EventArgs e)
         {
-
+            //this.MostraForm(new FrmAlterarAluno());
         }
 
         private void menuExcluirAluno_Click(object sender, EventArgs e)
         {
-
+            //this.MostraForm(new FrmExcluirAluno());
         }
 
         private void menuListarAlunos_Click(object sender, EventArgs e)
         {
-
+            //this.MostraForm(new FrmListarAlunos());
         }
 
         private void menuBuscarAluno_Click(object sender, EventArgs e)
         {
-
+            //this.MostraForm(new FrmBuscarAluno());
         }
 
         private void MenuCadastrarProfessor_Click(object sender, EventArgs e)
         {
-
+            this.MostraForm(new FrmCadastrarProfessor());
         }
 
         private void MenuAlterarProfessor_Click(object sender, EventArgs e)
         {
-
+            //this.MostraForm(new FrmAlterarProfessor());
         }
 
         private void MenuExcluirProfessor_Click(object sender, EventArgs e)
         {
-
+            //this.MostraForm(new FrmExcluirProfessor());
         }
 
         private void MenuListarProfessores_Click(object sender, EventArgs e)
         {
-
+            //this.MostraForm(new FrmListarProfessores());
         }
 
         private void MenuBuscarProfessor_Click(object sender, EventArgs e)
         {
-
+            //this.MostraForm(new FrmCadastrarAlunBuscarProfessor());
         }
 
         private void MenuCadastrarDisciplina_Click(object sender, EventArgs e)
         {
-
+            //this.MostraForm(new FrmCadastrarDisciplina());
         }
 
         private void MenuConsultarDisciplinas_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
+            //this.MostraForm(new FrmConsultar Disciplinas());
+        }        
 
         private void MostraForm(Form form)
         {

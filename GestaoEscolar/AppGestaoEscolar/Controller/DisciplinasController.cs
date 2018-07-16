@@ -1,4 +1,5 @@
-﻿using AppGestaoEscolar.Model.DAL;
+﻿using AppGestaoEscolar.Model;
+using AppGestaoEscolar.Model.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace AppGestaoEscolar.Controller
 {
     public class DisciplinasController
     {
-        ModelGEscContainer contexto = new ModelGEscContainer();
+        Contexto contexto = new Contexto();
 
         public void Inserir(Disciplina disciplina)
         {

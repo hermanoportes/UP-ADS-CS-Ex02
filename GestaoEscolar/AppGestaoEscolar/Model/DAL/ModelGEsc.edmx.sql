@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 07/14/2018 22:15:22
+-- Date Created: 07/16/2018 13:48:02
 -- Generated from EDMX file: C:\Users\Hermano\source\repos\UP-ADS-CS-Ex02\GestaoEscolar\AppGestaoEscolar\Model\DAL\ModelGEsc.edmx
 -- --------------------------------------------------
 
@@ -17,11 +17,41 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_ProfessorDisciplina]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Disciplinas] DROP CONSTRAINT [FK_ProfessorDisciplina];
+GO
+IF OBJECT_ID(N'[dbo].[FK_AlunoDisciplina_Aluno]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AlunoDisciplina] DROP CONSTRAINT [FK_AlunoDisciplina_Aluno];
+GO
+IF OBJECT_ID(N'[dbo].[FK_AlunoDisciplina_Disciplina]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AlunoDisciplina] DROP CONSTRAINT [FK_AlunoDisciplina_Disciplina];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Professor_inherits_Usuario]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Usuarios_Professor] DROP CONSTRAINT [FK_Professor_inherits_Usuario];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Aluno_inherits_Usuario]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Usuarios_Aluno] DROP CONSTRAINT [FK_Aluno_inherits_Usuario];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[Usuarios]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Usuarios];
+GO
+IF OBJECT_ID(N'[dbo].[Disciplinas]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Disciplinas];
+GO
+IF OBJECT_ID(N'[dbo].[Usuarios_Professor]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Usuarios_Professor];
+GO
+IF OBJECT_ID(N'[dbo].[Usuarios_Aluno]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Usuarios_Aluno];
+GO
+IF OBJECT_ID(N'[dbo].[AlunoDisciplina]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AlunoDisciplina];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -30,12 +60,13 @@ GO
 -- Creating table 'Usuarios'
 CREATE TABLE [dbo].[Usuarios] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Nome] nvarchar(max)  NOT NULL,
+    [Nome] nvarchar(50)  NOT NULL,
+    [Email] nvarchar(50)  NULL,
     [DataNasc] datetime  NOT NULL,
-    [Sexo] nvarchar(max)  NOT NULL,
+    [Sexo] nvarchar(50)  NOT NULL,
     [CPF] bigint  NOT NULL,
     [Telefone] bigint  NOT NULL,
-    [Endereco] nvarchar(max)  NOT NULL
+    [Endereco] nvarchar(50)  NOT NULL
 );
 GO
 
@@ -52,6 +83,7 @@ GO
 CREATE TABLE [dbo].[Usuarios_Professor] (
     [Formacao] nvarchar(max)  NOT NULL,
     [Salario] decimal(18,0)  NOT NULL,
+    [DataInicio] datetime  NOT NULL,
     [Id] int  NOT NULL
 );
 GO

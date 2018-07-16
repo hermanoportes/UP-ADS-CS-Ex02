@@ -1,4 +1,5 @@
-﻿using AppGestaoEscolar.Model.DAL;
+﻿using AppGestaoEscolar.Model;
+using AppGestaoEscolar.Model.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,11 @@ namespace AppGestaoEscolar.Controller
 {
     public class ProfessoresController
     {
-        ModelGEscContainer contexto = new ModelGEscContainer();
+        Contexto contexto = new Contexto();
 
         public void Inserir(Professor professor)
         {
-            contexto.Professores.Add(professor);
+            contexto.Usuarios_Professor.Add(professor);
             contexto.SaveChanges();
         }
 
@@ -27,18 +28,18 @@ namespace AppGestaoEscolar.Controller
 
         {
             Professor professor = BuscarId(idProfessor);
-            contexto.Professores.Remove(professor);
+            contexto.Usuarios_Professor.Remove(professor);
             contexto.SaveChanges();
         }
 
         public List<Professor> Listar()
         {
-            return contexto.Professores.ToList();
+            return contexto.Usuarios_Professor.ToList();
         }
 
         public Professor BuscarId(int idProfessor)
         {
-            return contexto.Professores.Find(idProfessor);
+            return contexto.Usuarios_Professor.Find(idProfessor);
         }
     }
 }

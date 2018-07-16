@@ -13,7 +13,7 @@
         <EntityTypeShape EntityType="ModelGEsc.Disciplina" Width="1.5" PointX="7" PointY="1.375" />
         <AssociationConnector Association="ModelGEsc.ProfessorDisciplina" />
         <AssociationConnector Association="ModelGEsc.AlunoDisciplina" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
