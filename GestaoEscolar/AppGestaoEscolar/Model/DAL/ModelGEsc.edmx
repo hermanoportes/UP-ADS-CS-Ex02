@@ -168,6 +168,7 @@
           <Property Name="CPF" Type="Int64" Nullable="false" />
           <Property Name="Telefone" Type="Int64" Nullable="false" />
           <Property Name="Endereco" Type="String" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Aluno" BaseType="ModelGEsc.Usuario">
           <Property Name="Matricula" Type="Int32" Nullable="false" />

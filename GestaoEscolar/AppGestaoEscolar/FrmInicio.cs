@@ -25,7 +25,7 @@ namespace AppGestaoEscolar
 
         private void menuCadastrarAluno_Click(object sender, EventArgs e)
         {
-            new FrmCadastrarAluno().Show();
+            this.MostraForm(new FrmCadastrarAluno());
         }
 
         private void menuAlterarAluno_Click(object sender, EventArgs e)
@@ -86,6 +86,20 @@ namespace AppGestaoEscolar
         private void button1_Click(object sender, EventArgs e)
         {
 
-        }        
+        }
+
+        private void MostraForm(Form form)
+        {
+            foreach (Form frmChild in this.MdiChildren)
+            {
+                if (frmChild.GetType() == form.GetType())
+                {
+                    frmChild.Focus();
+                    return;
+                }
+            }
+            form.MdiParent = this;
+            form.Show();
+        }
     }
 }

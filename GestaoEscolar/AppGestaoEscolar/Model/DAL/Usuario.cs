@@ -21,5 +21,6 @@ namespace AppGestaoEscolar.Model.DAL
         public long CPF { get; set; }
         public long Telefone { get; set; }
         public string Endereco { get; set; }
+        public string Email { get; set; }
     }
 }
