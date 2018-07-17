@@ -10,11 +10,11 @@ namespace AppGestaoEscolar.Controller
 {
     public class ProfessoresController
     {
-        Contexto contexto = new Contexto();
+        static Model1Container contexto = new Model1Container();
 
         public void Inserir(Professor professor)
         {
-            contexto.Usuarios_Professor.Add(professor);
+            contexto.Professores.Add(professor);
             contexto.SaveChanges();
         }
 
@@ -28,18 +28,18 @@ namespace AppGestaoEscolar.Controller
 
         {
             Professor professor = BuscarId(idProfessor);
-            contexto.Usuarios_Professor.Remove(professor);
+            contexto.Professores.Remove(professor);
             contexto.SaveChanges();
         }
 
         public List<Professor> Listar()
         {
-            return contexto.Usuarios_Professor.ToList();
+            return contexto.Professores.ToList();
         }
 
         public Professor BuscarId(int idProfessor)
         {
-            return contexto.Usuarios_Professor.Find(idProfessor);
+            return contexto.Professores.Find(idProfessor);
         }
     }
 }

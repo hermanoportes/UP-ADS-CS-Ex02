@@ -62,15 +62,34 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GestaoEscolarDBDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Model\Aluno.cs" />
-    <Compile Include="Model\DAL\Contexto.cs" />
-    <Compile Include="Model\Disciplina.cs" />
-    <Compile Include="Model\Professor.cs" />
-    <Compile Include="Model\Usuario.cs" />
-    <Compile Include="Model\DAL\ModelGEsc.Designer.cs">
+    <Compile Include="GestaoEscolarDBDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelGEsc.edmx</DependentUpon>
+      <DependentUpon>GestaoEscolarDBDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DAL\Aluno.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DAL\Disciplina.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DAL\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DAL\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DAL\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DAL\Professor.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -161,6 +180,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\FrmAlterarAluno.resx">
+      <DependentUpon>FrmAlterarAluno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FrmCadastrarAluno.resx">
       <DependentUpon>FrmCadastrarAluno.cs</DependentUpon>
     </EmbeddedResource>
@@ -173,9 +195,9 @@
     <EmbeddedResource Include="View\MDIPrincipal.resx">
       <DependentUpon>MDIPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\DAL\ModelGEsc.edmx">
+    <EntityDeploy Include="Model\DAL\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelGEsc.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="GestaoEscolarDBDataSet.xsc">
       <DependentUpon>GestaoEscolarDBDataSet.xsd</DependentUpon>
@@ -188,9 +210,19 @@
     <None Include="GestaoEscolarDBDataSet.xss">
       <DependentUpon>GestaoEscolarDBDataSet.xsd</DependentUpon>
     </None>
-    <None Include="Model\DAL\ModelGEsc.edmx.diagram">
-      <DependentUpon>ModelGEsc.edmx</DependentUpon>
+    <None Include="GestaoEscolarDBDataSet1.xsc">
+      <DependentUpon>GestaoEscolarDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="GestaoEscolarDBDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestaoEscolarDBDataSet1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </None>
+    <None Include="GestaoEscolarDBDataSet1.xss">
+      <DependentUpon>GestaoEscolarDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Model\DAL\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -210,7 +242,17 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\DAL\ModelGEsc.edmx.sql" />
+    <Content Include="Model\DAL\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\DAL\Model1.edmx.sql" />
+    <Content Include="Model\DAL\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -10,7 +10,7 @@ namespace AppGestaoEscolar.Controller
 {
     public class DisciplinasController
     {
-        Contexto contexto = new Contexto();
+        Model1Container contexto = new Model1Container();
 
         public void Inserir(Disciplina disciplina)
         {
@@ -50,6 +50,6 @@ namespace AppGestaoEscolar.Controller
         public Disciplina BuscarId(int idDisciplina)
         {
             return contexto.Disciplinas.Find(idDisciplina);
-        }   
+        }
     }
 }

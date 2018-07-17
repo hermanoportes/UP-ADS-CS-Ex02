@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AppGestaoEscolar.Controller;
+using AppGestaoEscolar.Model.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,74 +19,39 @@ namespace AppGestaoEscolar.View
             InitializeComponent();
         }
 
-        private void MenuItemSair_Click(object sender, EventArgs e)
+        private void btnEnviar_Click(object sender, EventArgs e)
         {
 
-        }
+            try
+            {
+                Aluno novoAluno = new Aluno();
 
-        private void menuCadastrarAluno_Click(object sender, EventArgs e)
-        {
+                novoAluno.Matricula = int.Parse(txtMatricula.Text);
+                novoAluno.Nome = txtNome.Text;
+                novoAluno.DataNasc = maskTxtDataNasc.Text;
+                if (rdBtnFem.Checked)
+                {
+                    novoAluno.Sexo = "Feminino";
+                }
+                else if (rdBtnMasc.Checked)
+                {
+                    novoAluno.Sexo = "Masculino";
+                }
 
-        }
+                AlunosController alunoController = new AlunosController();
+                alunoController.Inserir(novoAluno);
 
-        private void menuAlterarAluno_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void menuExcluirAluno_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void menuListarAlunos_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void menuBuscarAluno_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MenuCadastrarProfessor_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MenuAlterarProfessor_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MenuExcluirProfessor_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MenuListarProfessores_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MenuBuscarProfessor_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MenuCadastrarDisciplina_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MenuConsultarDisciplinas_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
+                MessageBox.Show("Aluno cadastrado com sucesso!");
+                txtMatricula.Text = null;
+                txtNome.Text = null;
+                maskTxtDataNasc.Text = null;
+                rdBtnFem.Checked = false;
+                rdBtnMasc.Checked = false;                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao salvar (" + ex.Message + ")");
+            } 
         }
     }
 }

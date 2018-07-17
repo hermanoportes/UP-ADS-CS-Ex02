@@ -31,26 +31,21 @@
             this.components = new System.ComponentModel.Container();
             this.labelCadastrarDisciplina = new System.Windows.Forms.Label();
             this.groupSetAluno = new System.Windows.Forms.GroupBox();
+            this.btnCadastrar = new System.Windows.Forms.Button();
+            this.comboProfessorId = new System.Windows.Forms.ComboBox();
+            this.usuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gestaoEscolarDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);            
             this.labelEmail = new System.Windows.Forms.Label();
-            this.txtNome = new System.Windows.Forms.TextBox();
+            this.txtCH = new System.Windows.Forms.TextBox();
             this.labelNomeDisc = new System.Windows.Forms.Label();
             this.labelCHoraria = new System.Windows.Forms.Label();
             this.txtNomeDisc = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.gestaoEscolarDBDataSet = new AppGestaoEscolar.GestaoEscolarDBDataSet();
-            this.gestaoEscolarDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.usuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.usuariosTableAdapter = new AppGestaoEscolar.GestaoEscolarDBDataSetTableAdapters.UsuariosTableAdapter();
             this.fKProfessorinheritsUsuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.usuarios_ProfessorTableAdapter = new AppGestaoEscolar.GestaoEscolarDBDataSetTableAdapters.Usuarios_ProfessorTableAdapter();
             this.fKProfessorDisciplinaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.disciplinasTableAdapter = new AppGestaoEscolar.GestaoEscolarDBDataSetTableAdapters.DisciplinasTableAdapter();
             this.usuariosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.btnEnviar = new System.Windows.Forms.Button();
             this.groupSetAluno.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gestaoEscolarDBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gestaoEscolarDBDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gestaoEscolarDBDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKProfessorinheritsUsuarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKProfessorDisciplinaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource1)).BeginInit();
@@ -68,9 +63,10 @@
             // 
             // groupSetAluno
             // 
-            this.groupSetAluno.Controls.Add(this.comboBox1);
+            this.groupSetAluno.Controls.Add(this.btnCadastrar);
+            this.groupSetAluno.Controls.Add(this.comboProfessorId);
             this.groupSetAluno.Controls.Add(this.labelEmail);
-            this.groupSetAluno.Controls.Add(this.txtNome);
+            this.groupSetAluno.Controls.Add(this.txtCH);
             this.groupSetAluno.Controls.Add(this.labelNomeDisc);
             this.groupSetAluno.Controls.Add(this.labelCHoraria);
             this.groupSetAluno.Controls.Add(this.txtNomeDisc);
@@ -81,6 +77,30 @@
             this.groupSetAluno.TabStop = false;
             this.groupSetAluno.Text = "Dados Pessoais";
             // 
+            // btnCadastrar
+            // 
+            this.btnCadastrar.Location = new System.Drawing.Point(586, 75);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(85, 28);
+            this.btnCadastrar.TabIndex = 32;
+            this.btnCadastrar.Text = "Cadastrar";
+            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
+            // 
+            // comboProfessorId
+            // 
+            this.comboProfessorId.DataSource = this.fKProfessorDisciplinaBindingSource;
+            this.comboProfessorId.FormattingEnabled = true;
+            this.comboProfessorId.Location = new System.Drawing.Point(200, 72);
+            this.comboProfessorId.Name = "comboProfessorId";
+            this.comboProfessorId.Size = new System.Drawing.Size(272, 21);
+            this.comboProfessorId.TabIndex = 31;
+            // 
+            // usuariosBindingSource
+            // 
+            this.usuariosBindingSource.DataMember = "Usuarios";
+            this.usuariosBindingSource.DataSource = this.gestaoEscolarDBDataSetBindingSource;
+            // 
             // labelEmail
             // 
             this.labelEmail.AutoSize = true;
@@ -90,12 +110,12 @@
             this.labelEmail.TabIndex = 30;
             this.labelEmail.Text = "Docente:";
             // 
-            // txtNome
+            // txtCH
             // 
-            this.txtNome.Location = new System.Drawing.Point(200, 46);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(58, 20);
-            this.txtNome.TabIndex = 29;
+            this.txtCH.Location = new System.Drawing.Point(200, 46);
+            this.txtCH.Name = "txtCH";
+            this.txtCH.Size = new System.Drawing.Size(58, 20);
+            this.txtCH.TabIndex = 29;
             // 
             // labelNomeDisc
             // 
@@ -122,65 +142,20 @@
             this.txtNomeDisc.Size = new System.Drawing.Size(272, 20);
             this.txtNomeDisc.TabIndex = 8;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.DataSource = this.usuariosBindingSource;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(200, 72);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(272, 21);
-            this.comboBox1.TabIndex = 31;
-            // 
-            // gestaoEscolarDBDataSet
-            // 
-            this.gestaoEscolarDBDataSet.DataSetName = "GestaoEscolarDBDataSet";
-            this.gestaoEscolarDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // gestaoEscolarDBDataSetBindingSource
-            // 
-            this.gestaoEscolarDBDataSetBindingSource.DataSource = this.gestaoEscolarDBDataSet;
-            this.gestaoEscolarDBDataSetBindingSource.Position = 0;
-            // 
-            // usuariosBindingSource
-            // 
-            this.usuariosBindingSource.DataMember = "Usuarios";
-            this.usuariosBindingSource.DataSource = this.gestaoEscolarDBDataSetBindingSource;
-            // 
-            // usuariosTableAdapter
-            // 
-            this.usuariosTableAdapter.ClearBeforeFill = true;
-            // 
             // fKProfessorinheritsUsuarioBindingSource
             // 
             this.fKProfessorinheritsUsuarioBindingSource.DataMember = "FK_Professor_inherits_Usuario";
             this.fKProfessorinheritsUsuarioBindingSource.DataSource = this.usuariosBindingSource;
-            // 
-            // usuarios_ProfessorTableAdapter
-            // 
-            this.usuarios_ProfessorTableAdapter.ClearBeforeFill = true;
             // 
             // fKProfessorDisciplinaBindingSource
             // 
             this.fKProfessorDisciplinaBindingSource.DataMember = "FK_ProfessorDisciplina";
             this.fKProfessorDisciplinaBindingSource.DataSource = this.fKProfessorinheritsUsuarioBindingSource;
             // 
-            // disciplinasTableAdapter
-            // 
-            this.disciplinasTableAdapter.ClearBeforeFill = true;
-            // 
             // usuariosBindingSource1
             // 
             this.usuariosBindingSource1.DataMember = "Usuarios";
             this.usuariosBindingSource1.DataSource = this.gestaoEscolarDBDataSetBindingSource;
-            // 
-            // btnEnviar
-            // 
-            this.btnEnviar.Location = new System.Drawing.Point(611, 167);
-            this.btnEnviar.Name = "btnEnviar";
-            this.btnEnviar.Size = new System.Drawing.Size(85, 28);
-            this.btnEnviar.TabIndex = 32;
-            this.btnEnviar.Text = "Enviar";
-            this.btnEnviar.UseVisualStyleBackColor = true;
             // 
             // FrmCadastrarDisciplina
             // 
@@ -188,7 +163,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(720, 480);
             this.ControlBox = false;
-            this.Controls.Add(this.btnEnviar);
             this.Controls.Add(this.groupSetAluno);
             this.Controls.Add(this.labelCadastrarDisciplina);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -199,13 +173,10 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmCadastrarDisciplina";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.FrmCadastrarDisciplina_Load);
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;            
             this.groupSetAluno.ResumeLayout(false);
             this.groupSetAluno.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gestaoEscolarDBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gestaoEscolarDBDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).EndInit();            
             ((System.ComponentModel.ISupportInitialize)(this.fKProfessorinheritsUsuarioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKProfessorDisciplinaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource1)).EndInit();
@@ -219,20 +190,16 @@
         private System.Windows.Forms.Label labelCadastrarDisciplina;
         private System.Windows.Forms.GroupBox groupSetAluno;
         private System.Windows.Forms.Label labelEmail;
-        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.TextBox txtCH;
         private System.Windows.Forms.Label labelNomeDisc;
         private System.Windows.Forms.Label labelCHoraria;
         private System.Windows.Forms.TextBox txtNomeDisc;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboProfessorId;
         private System.Windows.Forms.BindingSource gestaoEscolarDBDataSetBindingSource;
-        private GestaoEscolarDBDataSet gestaoEscolarDBDataSet;
         private System.Windows.Forms.BindingSource usuariosBindingSource;
-        private GestaoEscolarDBDataSetTableAdapters.UsuariosTableAdapter usuariosTableAdapter;
         private System.Windows.Forms.BindingSource fKProfessorinheritsUsuarioBindingSource;
-        private GestaoEscolarDBDataSetTableAdapters.Usuarios_ProfessorTableAdapter usuarios_ProfessorTableAdapter;
         private System.Windows.Forms.BindingSource fKProfessorDisciplinaBindingSource;
-        private GestaoEscolarDBDataSetTableAdapters.DisciplinasTableAdapter disciplinasTableAdapter;
         private System.Windows.Forms.BindingSource usuariosBindingSource1;
-        private System.Windows.Forms.Button btnEnviar;
+        private System.Windows.Forms.Button btnCadastrar;
     }
 }

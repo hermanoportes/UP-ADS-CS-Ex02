@@ -10,11 +10,11 @@ namespace AppGestaoEscolar.Controller
 {
     public class AlunosController
     {
-        Contexto contexto = new Contexto();
+        Model1Container contexto = new Model1Container();
 
         public void Inserir(Aluno aluno)
         {
-            contexto.Usuarios_Aluno.Add(aluno);
+            contexto.Alunos.Add(aluno);
             contexto.SaveChanges();
         }
 
@@ -28,18 +28,18 @@ namespace AppGestaoEscolar.Controller
 
         {
             Aluno aluno = BuscarId(idAluno);
-            contexto.Usuarios_Aluno.Remove(aluno);
+            contexto.Alunos.Remove(aluno);
             contexto.SaveChanges();
         }
 
         public List<Aluno> Listar()
         {
-            return contexto.Usuarios_Aluno.ToList();
+            return contexto.Alunos.ToList();
         }
 
         public Aluno Buscar(int matricula)
         {
-            var aluno = from a in contexto.Usuarios_Aluno
+            var aluno = from a in contexto.Alunos
                         where a.Matricula == matricula
                         select a;
             return (Aluno)aluno;
@@ -47,7 +47,7 @@ namespace AppGestaoEscolar.Controller
 
         public Aluno BuscarId(int idAluno)
         {
-            return contexto.Usuarios_Aluno.Find(idAluno); 
+            return contexto.Alunos.Find(idAluno); 
         }
     }
 }
