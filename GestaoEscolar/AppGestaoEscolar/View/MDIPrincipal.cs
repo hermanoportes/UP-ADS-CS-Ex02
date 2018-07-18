@@ -67,6 +67,7 @@ namespace AppGestaoEscolar.View
                     frmChild.Focus();
                     return;
                 }
+
             }
             form.MdiParent = this;
             form.Show();

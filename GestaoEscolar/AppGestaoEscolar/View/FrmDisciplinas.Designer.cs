@@ -31,43 +31,30 @@
             this.components = new System.ComponentModel.Container();
             this.labelDisciplinas = new System.Windows.Forms.Label();
             this.groupSetAluno = new System.Windows.Forms.GroupBox();
-            this.comboDocente = new System.Windows.Forms.ComboBox();
-            this.professoresBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.professoresDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.professoresDataSet = new AppGestaoEscolar.ProfessoresDataSet();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.txtProfessorId = new System.Windows.Forms.TextBox();
+            this.txtCH = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.labelCH = new System.Windows.Forms.Label();
             this.btnEnviar = new System.Windows.Forms.Button();
             this.labelNome = new System.Windows.Forms.Label();
             this.labelProfessorId = new System.Windows.Forms.Label();
-            this.txtMatricula = new System.Windows.Forms.TextBox();
-            this.professoresBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.txtNome = new System.Windows.Forms.TextBox();
             this.dGVDisciplinas = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AlunosDiciplina = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Alterar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Excluir = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.disciplinasBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.disciplinasDataSet = new AppGestaoEscolar.DisciplinasDataSet();
             this.disciplinasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.professoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.professoresTableAdapter = new AppGestaoEscolar.ProfessoresDataSetTableAdapters.ProfessoresTableAdapter();
+            this.disciplinasDataSet = new AppGestaoEscolar.DisciplinasDataSet();
             this.disciplinasTableAdapter = new AppGestaoEscolar.DisciplinasDataSetTableAdapters.DisciplinasTableAdapter();
-            this.professoresBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.groupSetAluno.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.professoresBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.professoresDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.professoresDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.professoresBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dGVDisciplinas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.disciplinasBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.disciplinasDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.disciplinasBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.professoresBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.professoresBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.disciplinasDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // labelDisciplinas
@@ -83,14 +70,15 @@
             // 
             // groupSetAluno
             // 
-            this.groupSetAluno.Controls.Add(this.comboDocente);
-            this.groupSetAluno.Controls.Add(this.textBox1);
+            this.groupSetAluno.Controls.Add(this.btnBuscar);
+            this.groupSetAluno.Controls.Add(this.txtProfessorId);
+            this.groupSetAluno.Controls.Add(this.txtCH);
             this.groupSetAluno.Controls.Add(this.txtId);
             this.groupSetAluno.Controls.Add(this.labelCH);
             this.groupSetAluno.Controls.Add(this.btnEnviar);
             this.groupSetAluno.Controls.Add(this.labelNome);
             this.groupSetAluno.Controls.Add(this.labelProfessorId);
-            this.groupSetAluno.Controls.Add(this.txtMatricula);
+            this.groupSetAluno.Controls.Add(this.txtNome);
             this.groupSetAluno.Location = new System.Drawing.Point(57, 31);
             this.groupSetAluno.Name = "groupSetAluno";
             this.groupSetAluno.Size = new System.Drawing.Size(677, 133);
@@ -98,38 +86,29 @@
             this.groupSetAluno.TabStop = false;
             this.groupSetAluno.Text = "Cadastrar/Alterar";
             // 
-            // comboDocente
+            // btnBuscar
             // 
-            this.comboDocente.DataSource = this.professoresBindingSource2;
-            this.comboDocente.DisplayMember = "Nome";
-            this.comboDocente.FormattingEnabled = true;
-            this.comboDocente.Location = new System.Drawing.Point(200, 72);
-            this.comboDocente.Name = "comboDocente";
-            this.comboDocente.Size = new System.Drawing.Size(298, 21);
-            this.comboDocente.TabIndex = 3;
-            this.comboDocente.TabStop = false;
+            this.btnBuscar.Location = new System.Drawing.Point(306, 70);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 4;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // professoresBindingSource2
+            // txtProfessorId
             // 
-            this.professoresBindingSource2.DataMember = "Professores";
-            this.professoresBindingSource2.DataSource = this.professoresDataSetBindingSource;
+            this.txtProfessorId.Location = new System.Drawing.Point(200, 72);
+            this.txtProfessorId.Name = "txtProfessorId";
+            this.txtProfessorId.Size = new System.Drawing.Size(100, 20);
+            this.txtProfessorId.TabIndex = 3;
             // 
-            // professoresDataSetBindingSource
+            // txtCH
             // 
-            this.professoresDataSetBindingSource.DataSource = this.professoresDataSet;
-            this.professoresDataSetBindingSource.Position = 0;
-            // 
-            // professoresDataSet
-            // 
-            this.professoresDataSet.DataSetName = "ProfessoresDataSet";
-            this.professoresDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(200, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(67, 20);
-            this.textBox1.TabIndex = 2;
+            this.txtCH.Location = new System.Drawing.Point(200, 46);
+            this.txtCH.Name = "txtCH";
+            this.txtCH.Size = new System.Drawing.Size(100, 20);
+            this.txtCH.TabIndex = 2;
             // 
             // txtId
             // 
@@ -155,9 +134,10 @@
             this.btnEnviar.Location = new System.Drawing.Point(586, 99);
             this.btnEnviar.Name = "btnEnviar";
             this.btnEnviar.Size = new System.Drawing.Size(85, 28);
-            this.btnEnviar.TabIndex = 4;
+            this.btnEnviar.TabIndex = 5;
             this.btnEnviar.Text = "Enviar";
             this.btnEnviar.UseVisualStyleBackColor = true;
+            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
             // labelNome
             // 
@@ -177,17 +157,12 @@
             this.labelProfessorId.TabIndex = 3;
             this.labelProfessorId.Text = "Docente:";
             // 
-            // txtMatricula
+            // txtNome
             // 
-            this.txtMatricula.Location = new System.Drawing.Point(200, 20);
-            this.txtMatricula.Name = "txtMatricula";
-            this.txtMatricula.Size = new System.Drawing.Size(298, 20);
-            this.txtMatricula.TabIndex = 1;
-            // 
-            // professoresBindingSource1
-            // 
-            this.professoresBindingSource1.DataMember = "Professores";
-            this.professoresBindingSource1.DataSource = this.professoresDataSet;
+            this.txtNome.Location = new System.Drawing.Point(200, 20);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(298, 20);
+            this.txtNome.TabIndex = 1;
             // 
             // dGVDisciplinas
             // 
@@ -204,20 +179,23 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
+            this.AlunosDiciplina,
             this.Alterar,
             this.Excluir});
-            this.dGVDisciplinas.DataSource = this.disciplinasBindingSource1;
+            this.dGVDisciplinas.DataSource = this.disciplinasBindingSource;
             this.dGVDisciplinas.EnableHeadersVisualStyles = false;
-            this.dGVDisciplinas.Location = new System.Drawing.Point(57, 170);
+            this.dGVDisciplinas.Location = new System.Drawing.Point(57, 164);
             this.dGVDisciplinas.MultiSelect = false;
             this.dGVDisciplinas.Name = "dGVDisciplinas";
             this.dGVDisciplinas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dGVDisciplinas.Size = new System.Drawing.Size(677, 380);
-            this.dGVDisciplinas.TabIndex = 5;
+            this.dGVDisciplinas.Size = new System.Drawing.Size(677, 386);
+            this.dGVDisciplinas.TabIndex = 6;
+            this.dGVDisciplinas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVDisciplinas_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.FillWeight = 83.66071F;
             this.dataGridViewTextBoxColumn1.HeaderText = "Id";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
@@ -225,61 +203,68 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "Nome";
+            this.dataGridViewTextBoxColumn2.FillWeight = 83.66071F;
             this.dataGridViewTextBoxColumn2.HeaderText = "Nome";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "CargaHoraria";
+            this.dataGridViewTextBoxColumn3.FillWeight = 83.66071F;
             this.dataGridViewTextBoxColumn3.HeaderText = "CargaHoraria";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "ProfessorId";
+            this.dataGridViewTextBoxColumn4.FillWeight = 83.66071F;
             this.dataGridViewTextBoxColumn4.HeaderText = "ProfessorId";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
+            // AlunosDiciplina
+            // 
+            this.AlunosDiciplina.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.AlunosDiciplina.FillWeight = 180.4873F;
+            this.AlunosDiciplina.HeaderText = "";
+            this.AlunosDiciplina.Name = "AlunosDiciplina";
+            this.AlunosDiciplina.ReadOnly = true;
+            this.AlunosDiciplina.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.AlunosDiciplina.Text = "Alunos";
+            this.AlunosDiciplina.ToolTipText = "Clique para adicionar ou excluir alunos";
+            this.AlunosDiciplina.UseColumnTextForButtonValue = true;
+            this.AlunosDiciplina.Width = 60;
+            // 
             // Alterar
             // 
-            this.Alterar.FillWeight = 46.3F;
+            this.Alterar.FillWeight = 38.73491F;
             this.Alterar.HeaderText = "";
             this.Alterar.Name = "Alterar";
             this.Alterar.ReadOnly = true;
             this.Alterar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Alterar.Text = "Alterar";
-            this.Alterar.ToolTipText = "Alterar";
+            this.Alterar.ToolTipText = "Clique para alterar dadoas da Disciplina";
             this.Alterar.UseColumnTextForButtonValue = true;
             // 
             // Excluir
             // 
-            this.Excluir.FillWeight = 46.3F;
+            this.Excluir.FillWeight = 38.73491F;
             this.Excluir.HeaderText = "";
             this.Excluir.Name = "Excluir";
             this.Excluir.ReadOnly = true;
             this.Excluir.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Excluir.Text = "Excluir";
-            this.Excluir.ToolTipText = "Excluir";
+            this.Excluir.ToolTipText = "Clique para excluir a disciplina";
             this.Excluir.UseColumnTextForButtonValue = true;
             // 
-            // disciplinasBindingSource1
+            // disciplinasBindingSource
             // 
-            this.disciplinasBindingSource1.DataMember = "Disciplinas";
-            this.disciplinasBindingSource1.DataSource = this.disciplinasDataSet;
+            this.disciplinasBindingSource.DataMember = "Disciplinas";
+            this.disciplinasBindingSource.DataSource = this.disciplinasDataSet;
             // 
             // disciplinasDataSet
             // 
             this.disciplinasDataSet.DataSetName = "DisciplinasDataSet";
             this.disciplinasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // professoresBindingSource
-            // 
-            this.professoresBindingSource.DataMember = "Professores";
-            this.professoresBindingSource.DataSource = this.professoresDataSetBindingSource;
-            // 
-            // professoresTableAdapter
-            // 
-            this.professoresTableAdapter.ClearBeforeFill = true;
             // 
             // disciplinasTableAdapter
             // 
@@ -304,16 +289,9 @@
             this.Load += new System.EventHandler(this.FrmDisciplinas_Load);
             this.groupSetAluno.ResumeLayout(false);
             this.groupSetAluno.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.professoresBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.professoresDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.professoresDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.professoresBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dGVDisciplinas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.disciplinasBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.disciplinasDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.disciplinasBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.professoresBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.professoresBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.disciplinasDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,30 +306,24 @@
         private System.Windows.Forms.Button btnEnviar;
         private System.Windows.Forms.Label labelNome;
         private System.Windows.Forms.Label labelProfessorId;
-        private System.Windows.Forms.TextBox txtMatricula;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.TextBox txtCH;
         private System.Windows.Forms.DataGridView dGVDisciplinas;
-        private System.Windows.Forms.BindingSource disciplinasBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cargaHorariaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn professorIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ComboBox comboDocente;
-        private System.Windows.Forms.BindingSource professoresDataSetBindingSource;
-        private ProfessoresDataSet professoresDataSet;
-        private System.Windows.Forms.BindingSource professoresBindingSource;
-        private ProfessoresDataSetTableAdapters.ProfessoresTableAdapter professoresTableAdapter;
-        private System.Windows.Forms.BindingSource professoresBindingSource1;
-        private System.Windows.Forms.BindingSource professoresBindingSource2;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.TextBox txtProfessorId;
         private DisciplinasDataSet disciplinasDataSet;
-        private System.Windows.Forms.BindingSource disciplinasBindingSource1;
+        private System.Windows.Forms.BindingSource disciplinasBindingSource;
         private DisciplinasDataSetTableAdapters.DisciplinasTableAdapter disciplinasTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewButtonColumn AlunosDiciplina;
         private System.Windows.Forms.DataGridViewButtonColumn Alterar;
         private System.Windows.Forms.DataGridViewButtonColumn Excluir;
-        private System.Windows.Forms.BindingSource professoresBindingSource3;
     }
 }

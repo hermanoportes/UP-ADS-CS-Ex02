@@ -50,6 +50,6 @@ namespace AppGestaoEscolar.Controller
         public Disciplina BuscarId(int idDisciplina)
         {
             return contexto.Disciplinas.Find(idDisciplina);
-        }
+        }        
     }
 }
