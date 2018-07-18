@@ -13,9 +13,11 @@ using System.Windows.Forms;
 namespace AppGestaoEscolar.View
 {
     public partial class FrmAlunosDisciplina : Form
-    {        
-        public ICollection<Aluno> alunosDisciplina = new List<Aluno>();
-        
+    {
+        public int disciplinaId { get; set; }
+        //public virtual ICollection<Aluno> alunoDisciplinas { get; set; }
+        //public virtual ICollection<Disciplina> disciplinaAlunos{ get; set; }
+
         public FrmAlunosDisciplina()
         {
             InitializeComponent();
@@ -41,9 +43,9 @@ namespace AppGestaoEscolar.View
             aluno.Nome = Convert.ToString(dGVListaAlunos.CurrentRow.Cells[2].Value);
             aluno.DataNasc = Convert.ToString(dGVListaAlunos.CurrentRow.Cells[3].Value);
             aluno.Sexo = Convert.ToString(dGVListaAlunos.CurrentRow.Cells[3].Value);
-            aluno.Disciplinas.Add();
             
-            alunosDisciplina.Add(aluno);
+            
+            
 
 
         }

@@ -98,7 +98,8 @@ namespace AppGestaoEscolar.View
             }
             else if (dGVDisciplinas.CurrentRow.Cells[4].Selected)
             {
-                FrmAlunosDisciplina frmAlunosDisciplina = new FrmAlunosDisciplina();                              
+                FrmAlunosDisciplina frmAlunosDisciplina = new FrmAlunosDisciplina();
+                frmAlunosDisciplina.disciplinaId = int.Parse(Convert.ToString(dGVDisciplinas.CurrentRow.Cells[0].Value));
                 frmAlunosDisciplina.ShowDialog();                
             }
         }
