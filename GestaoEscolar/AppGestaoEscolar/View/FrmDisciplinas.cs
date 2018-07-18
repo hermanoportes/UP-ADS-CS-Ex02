@@ -84,10 +84,10 @@ namespace AppGestaoEscolar.View
             {
                 try
                 {
-                    AlunosController alunoController = new AlunosController();
-                    alunoController.Excluir(int.Parse(Convert.ToString(dGVDisciplinas.CurrentRow.Cells[0].Value)));
+                    DisciplinasController disciplinasController = new DisciplinasController();
+                    disciplinasController.Excluir(int.Parse(Convert.ToString(dGVDisciplinas.CurrentRow.Cells[0].Value)));
 
-                    MessageBox.Show("Aluno excluido com sucesso!");
+                    MessageBox.Show("Disciplina excluida com sucesso!");
 
                     disciplinasTableAdapter.Fill(this.disciplinasDataSet.Disciplinas);
                 }
@@ -98,8 +98,8 @@ namespace AppGestaoEscolar.View
             }
             else if (dGVDisciplinas.CurrentRow.Cells[4].Selected)
             {
-                FrmAlunosDisciplina frmAlunosDisciplina = new FrmAlunosDisciplina();
-                frmAlunosDisciplina.ShowDialog();
+                FrmAlunosDisciplina frmAlunosDisciplina = new FrmAlunosDisciplina();                              
+                frmAlunosDisciplina.ShowDialog();                
             }
         }
 

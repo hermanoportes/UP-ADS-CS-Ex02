@@ -24,9 +24,9 @@ namespace AppGestaoEscolar.Controller
             contexto.SaveChanges();
         }
 
-        public void InserirAluno()
+        public void InserirAluno(int id)
         {
-
+            
         }
 
         public void ExcluirAluno()
@@ -42,14 +42,14 @@ namespace AppGestaoEscolar.Controller
             contexto.SaveChanges();
         }
 
-        public List<Disciplina> Listar()
+        /*public List<Disciplina> Listar()
         {
             return contexto.Disciplinas.ToList();
-        }
+        }*/
 
         public Disciplina BuscarId(int idDisciplina)
         {
             return contexto.Disciplinas.Find(idDisciplina);
-        }        
+        }
     }
 }
