@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppGestaoEscolar", "AppGestaoEscolar\AppGestaoEscolar.csproj", "{D14AFCAF-4160-4429-A651-F3B1B144BCCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Migartions", "Migartions\Migartions.csproj", "{783D8680-8ECD-436B-ADAD-E2FCCC5F7ADE}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{D14AFCAF-4160-4429-A651-F3B1B144BCCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D14AFCAF-4160-4429-A651-F3B1B144BCCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D14AFCAF-4160-4429-A651-F3B1B144BCCA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{783D8680-8ECD-436B-ADAD-E2FCCC5F7ADE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{783D8680-8ECD-436B-ADAD-E2FCCC5F7ADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{783D8680-8ECD-436B-ADAD-E2FCCC5F7ADE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{783D8680-8ECD-436B-ADAD-E2FCCC5F7ADE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

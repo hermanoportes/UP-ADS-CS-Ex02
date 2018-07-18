@@ -36,81 +36,26 @@ namespace AppGestaoEscolar.View
             {
                 string FileName = openFileDialog.FileName;
             }
-        }
-
-        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            saveFileDialog.Filter = "Arquivos de texto (*.txt)|*.txt|Todos os arquivos (*.*)|*.*";
-            if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = saveFileDialog.FileName;
-            }
-        }
+        }        
 
         private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();        
         }
-        private void cadastrarToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void alunosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.MostraForm(new FrmCadastrarAluno());
+            this.MostraForm(new FrmAlunos());
         }
 
-        private void alterarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void professoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.MostraForm(new FrmAlterarAluno());
+            this.MostraForm(new FrmProfessores());
         }
 
-        private void excluirToolStripMenuItem_Click(object sender, EventArgs e)
+        private void disciplinasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.MostraForm(new FrmExcluirAluno());
-        }
-
-        private void listarAlunosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.MostraForm(new FrmListarAlunos());
-        }
-
-        private void buscarAlunoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.MostraForm(new FrmBuscarAluno());
-        }
-
-        private void cadastrarToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            this.MostraForm(new FrmCadastrarProfessor());
-        }
-
-        private void alterarToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            this.MostraForm(new FrmAlterarProfessor());
-        }
-
-        private void excluirToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            this.MostraForm(new FrmExcluirProfessor());
-        }
-
-        private void listarProfessoresToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.MostraForm(new FrmListarProfessores());
-        }
-
-        private void buscarProfessorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.MostraForm(new FrmBuscarProfessor());
-        }
-
-        private void cadastrarToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            this.MostraForm(new FrmCadastrarDisciplina());
-        }
-
-        private void consultarDisciplinasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.MostraForm(new FrmConsultarDisciplinas());
+            this.MostraForm(new FrmDisciplinas());
         }
 
         private void MostraForm(Form form)
@@ -126,5 +71,7 @@ namespace AppGestaoEscolar.View
             form.MdiParent = this;
             form.Show();
         }
+
+        
     }
 }
