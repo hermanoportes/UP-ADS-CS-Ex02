@@ -42,12 +42,17 @@
             this.alunosTableAdapter = new AppGestaoEscolar.AlunosDataSetTableAdapters.AlunosTableAdapter();
             this.btnDel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gestaoEscolarDBDataSet = new AppGestaoEscolar.GestaoEscolarDBDataSet();
+            this.alunoDisciplinaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.alunoDisciplinaTableAdapter = new AppGestaoEscolar.GestaoEscolarDBDataSetTableAdapters.AlunoDisciplinaTableAdapter();
+            this.alunosIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.disciplinasIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dGVListaAlunos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alunosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alunosDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dGVAlunosMatriculados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gestaoEscolarDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alunoDisciplinaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dGVListaAlunos
@@ -68,7 +73,7 @@
             this.sexoDataGridViewTextBoxColumn});
             this.dGVListaAlunos.DataSource = this.alunosBindingSource;
             this.dGVListaAlunos.EnableHeadersVisualStyles = false;
-            this.dGVListaAlunos.Location = new System.Drawing.Point(12, 12);
+            this.dGVListaAlunos.Location = new System.Drawing.Point(11, 12);
             this.dGVListaAlunos.MultiSelect = false;
             this.dGVListaAlunos.Name = "dGVListaAlunos";
             this.dGVListaAlunos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -140,13 +145,15 @@
             this.dGVAlunosMatriculados.AllowUserToAddRows = false;
             this.dGVAlunosMatriculados.AllowUserToDeleteRows = false;
             this.dGVAlunosMatriculados.AllowUserToResizeRows = false;
+            this.dGVAlunosMatriculados.AutoGenerateColumns = false;
             this.dGVAlunosMatriculados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dGVAlunosMatriculados.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.dGVAlunosMatriculados.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dGVAlunosMatriculados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGVAlunosMatriculados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2});
+            this.alunosIdDataGridViewTextBoxColumn,
+            this.disciplinasIdDataGridViewTextBoxColumn});
+            this.dGVAlunosMatriculados.DataSource = this.alunoDisciplinaBindingSource;
             this.dGVAlunosMatriculados.EnableHeadersVisualStyles = false;
             this.dGVAlunosMatriculados.Location = new System.Drawing.Point(298, 12);
             this.dGVAlunosMatriculados.MultiSelect = false;
@@ -179,15 +186,31 @@
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Column1
+            // gestaoEscolarDBDataSet
             // 
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
+            this.gestaoEscolarDBDataSet.DataSetName = "GestaoEscolarDBDataSet";
+            this.gestaoEscolarDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // Column2
+            // alunoDisciplinaBindingSource
             // 
-            this.Column2.HeaderText = "Column2";
-            this.Column2.Name = "Column2";
+            this.alunoDisciplinaBindingSource.DataMember = "AlunoDisciplina";
+            this.alunoDisciplinaBindingSource.DataSource = this.gestaoEscolarDBDataSet;
+            // 
+            // alunoDisciplinaTableAdapter
+            // 
+            this.alunoDisciplinaTableAdapter.ClearBeforeFill = true;
+            // 
+            // alunosIdDataGridViewTextBoxColumn
+            // 
+            this.alunosIdDataGridViewTextBoxColumn.DataPropertyName = "Alunos_Id";
+            this.alunosIdDataGridViewTextBoxColumn.HeaderText = "Alunos_Id";
+            this.alunosIdDataGridViewTextBoxColumn.Name = "alunosIdDataGridViewTextBoxColumn";
+            // 
+            // disciplinasIdDataGridViewTextBoxColumn
+            // 
+            this.disciplinasIdDataGridViewTextBoxColumn.DataPropertyName = "Disciplinas_Id";
+            this.disciplinasIdDataGridViewTextBoxColumn.HeaderText = "Disciplinas_Id";
+            this.disciplinasIdDataGridViewTextBoxColumn.Name = "disciplinasIdDataGridViewTextBoxColumn";
             // 
             // FrmAlunosDisciplina
             // 
@@ -206,6 +229,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.alunosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.alunosDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dGVAlunosMatriculados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gestaoEscolarDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alunoDisciplinaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -225,7 +250,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sexoDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.Button btnOk;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private GestaoEscolarDBDataSet gestaoEscolarDBDataSet;
+        private System.Windows.Forms.BindingSource alunoDisciplinaBindingSource;
+        private GestaoEscolarDBDataSetTableAdapters.AlunoDisciplinaTableAdapter alunoDisciplinaTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn alunosIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn disciplinasIdDataGridViewTextBoxColumn;
     }
 }

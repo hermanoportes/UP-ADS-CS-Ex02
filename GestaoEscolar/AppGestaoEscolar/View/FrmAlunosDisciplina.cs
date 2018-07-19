@@ -25,6 +25,8 @@ namespace AppGestaoEscolar.View
 
         private void FrmAlunosDisciplina_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'gestaoEscolarDBDataSet.AlunoDisciplina'. Você pode movê-la ou removê-la conforme necessário.
+            this.alunoDisciplinaTableAdapter.Fill(this.gestaoEscolarDBDataSet.AlunoDisciplina);
             // TODO: esta linha de código carrega dados na tabela 'alunosDataSet.Alunos'. Você pode movê-la ou removê-la conforme necessário.
             this.alunosTableAdapter.Fill(this.alunosDataSet.Alunos);
 

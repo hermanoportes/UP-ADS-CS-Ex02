@@ -14,7 +14,9 @@ namespace AppGestaoEscolar.View
 {
     public partial class FrmDisciplinas : Form
     {
+        FrmBuscaProfessor frmBuscaProfessor = new FrmBuscaProfessor();
         public string professorId;
+
 
         public FrmDisciplinas()
         {
@@ -28,10 +30,9 @@ namespace AppGestaoEscolar.View
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            FrmBuscaProfessor frmBuscaProfessor = new FrmBuscaProfessor();
+        {            
             frmBuscaProfessor.ShowDialog();
-            txtProfessorId.Text = frmBuscaProfessor.professorId;
+            txtProfessorId.Text = frmBuscaProfessor.professorId + " - " + frmBuscaProfessor.professorNome;
         }
          
         private void btnEnviar_Click(object sender, EventArgs e)
@@ -44,7 +45,7 @@ namespace AppGestaoEscolar.View
                     disciplina.Id = int.Parse(txtId.Text);
                 disciplina.Nome = txtNome.Text;
                 disciplina.CargaHoraria = int.Parse(txtCH.Text);
-                disciplina.ProfessorId = int.Parse(txtProfessorId.Text);
+                disciplina.ProfessorId = int.Parse(frmBuscaProfessor.professorId);
 
                 DisciplinasController disciplinasController = new DisciplinasController();
 

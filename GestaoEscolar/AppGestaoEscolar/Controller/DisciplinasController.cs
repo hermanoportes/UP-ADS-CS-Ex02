@@ -24,8 +24,10 @@ namespace AppGestaoEscolar.Controller
             contexto.SaveChanges();
         }
 
-        public void InserirAluno(int id)
+        public void InserirAluno(int Alunoid)
         {
+            
+            
             
         }
 
